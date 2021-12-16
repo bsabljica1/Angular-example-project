@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+
+    <div class="titleText">
+        <h1>Welcome to the News App!</h1>
+        <p>Simplify your search using the form below.</p>
+    </div>
+
+    <div class="formField">
+        <form #searchForm="ngForm" (ngSubmit)="submit(searchForm.value); searchForm.resetForm()">
+
+            <div class="inputField1">
+                <mat-form-field appearance="outline">
+                    <mat-label>Enter keyword</mat-label>
+                    <input matInput placeholder="Example: bitcoin" name="keyword" ngModel [(ngModel)]="keyword">
+                </mat-form-field>
+            </div>
+
+            <div class="inputField2">
+                <mat-form-field appearance="outline">
+                    <mat-label>Enter a date range</mat-label>
+                    <mat-date-range-input [rangePicker]="picker">
+                        <input matStartDate placeholder="Start date" name="startDate" ngModel [(ngModel)]="startDate">
+                        <input matEndDate bsDatepicker placeholder="End date" name="endDate" ngModel
+                            [(ngModel)]="endDate">
+                    </mat-date-range-input>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-date-range-picker #picker></mat-date-range-picker>
+                    <mat-hint>Date cannot be older then a month</mat-hint>
+                </mat-form-field>
+            </div>
+
+            <div class="submitButton">
+                <button color="primary" mat-raised-button type="submit"
+                    [disabled]="keyword === '' || startDate === '' || endDate === '' || startDate === null || endDate === null">
+                    Sumbit
+                </button>
+            </div>
+
+
+        </form>
+    </div>
+
+    <div class="container" *ngIf="articles !== null">
+
+        <div class="filterBlock">
+
+            <div class="filterInputFieldContainer">
+                <mat-form-field class="filterInputField" appearance="outline">
+                    <mat-label>Enter author name</mat-label>
+                    <input matInput placeholder="Example: John" name="authorFilter" ngModel [(ngModel)]="authorFilter">
+                    <mat-hint>Write "All" to show all articles</mat-hint>
+                </mat-form-field>
+            </div>
+
+            <div class="filterButtonContainer">
+                <button class="filterButton" color="primary" mat-raised-button type="submit" (click)="onFilter()"
+                [disabled]="authorFilter === ''">
+                    Filter by author
+                </button>
+            </div>
+
+        </div>
+
+        <div class="articleList">
+            <div *ngFor="let d of everythingDisplay" class="article">
+
+                <img src="{{d.urlToImage}}" width="50%">
+                <h1>{{d.title}}</h1>
+                <p>{{d.author}}, {{d.publishedAt}}</p>
+                <a href="{{d.url}}">{{d.url}}</a>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

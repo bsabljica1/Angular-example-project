@@ -1,0 +1,94 @@
+body { 
+    background-color: white;
+    text-align: center;
+    background-color:rgb(52, 139, 192);
+}
+
+.titleText {
+    background-color:lightskyblue;
+    padding: 25px;
+    font-weight:lighter;
+    font-size: large;
+}
+
+.explanationText {
+    background-color:lightskyblue;
+}
+
+.formField {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:rgb(52, 139, 192);
+    text-align: center;
+    border-bottom: 2px rgb(145, 11, 11) solid;
+    border-top: 2px rgb(145, 11, 11) solid;
+  }
+
+.inputField1 {
+    margin-top: 25px;
+}
+
+.submitButton {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+mat-form-field {
+    width: 300px;
+}
+
+button {
+    width:300px;
+}
+
+.container{
+
+    background-color:rgb(52, 139, 192);
+}
+
+
+.articleList {
+    display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-gap: 10px;
+  padding: 20px;
+  padding-bottom: 20px;
+  border-top: 2px rgb(145, 11, 11) solid;
+  margin-top: 10px;
+}
+
+.article{
+  padding: 10px;
+  background: whitesmoke;
+  box-shadow:
+    0 5px 10px rgba(0, 0, 0, 0.1),
+    0 20px 20px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    align-items: center;
+}
+
+.filterBlock {
+    display: inline-flex;
+}
+
+.filterButtonContainer{
+    display: grid;  
+    margin-left: 10px;
+}
+
+.filterButton {
+    margin: auto;  
+    width: 170px;
+    height: 52px;
+}
+
+.filterInputFieldContainer{
+    display: grid;  
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+.filterInputField{
+    width: 170px;
+}
